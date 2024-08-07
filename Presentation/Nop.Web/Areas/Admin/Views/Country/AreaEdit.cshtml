@@ -1,0 +1,30 @@
+﻿@model AreaModel
+
+@{
+    Layout = "_AdminLayout";
+
+    //page title
+    ViewBag.PageTitle = T("Admin.Configuration.Countries.Areas.EditAreaDetails").Text;
+}
+
+
+<form asp-controller="Country" asp-action="AreaEdit" method="post" id="area-form">
+    <div class="content-header clearfix">
+        <h1 class="float-left">
+            @T("Admin.Configuration.Countries.Areas.EditAreaDetails") - @Model.Name
+            <small>
+                <i class="fas fa-arrow-circle-left"></i>
+                <a asp-action="ThanaEdit" asp-route-id="@Model.ThanaId">@T("Admin.Configuration.Countries.Areas.BackToList")</a>
+            </small>
+        </h1>
+        <div class="float-right">
+            <button type="submit" name="save" class="btn btn-primary">
+                <i class="far fa-save"></i>
+                @T("Admin.Common.Save")
+            </button>
+            @await Component.InvokeAsync(typeof(AdminWidgetViewComponent), new { widgetZone = AdminWidgetZones.CountryStateDetailsButtons, additionalData = Model })
+        </div>
+    </div>
+    @await Html.PartialAsync("_CreateOrUpdateArea", Model)
+</form>
+<nop-delete-confirmation asp-model-id="@Model.Id" asp-button-id="area-delete" />

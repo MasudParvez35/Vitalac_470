@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language Name="বাংলা (বাংলাদেশ)">
+    <LocaleResource Name="Admin.Orders.PdfInvoice.Print">
+        <value>প্রিন্ট ইনভয়েস (পিডিএফ)</value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants">
+        <value>ব্যবসায়ী</value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Address">
+        <value>ব্যবসায়ী ঠিকানা</value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.List.SearchName">
+        <value>ব্যবসায়ীর নাম খুঁজুন</value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.List.SearchName.Hint">
+        <value>ব্যবসায়ীর নাম খুঁজুন</value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.List.SearchEmail">
+        <value>ব্যবসায়ী ইমেল খুঁজুন</value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.List.SearchEmail.Hint">
+        <value>ব্যবসায়ী ইমেল খুঁজুন</value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.Name">
+        <value>নাম</value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.Name.Hint">
+        <value>ব্যবসায়ীর নাম</value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.Description">
+        <value>বর্ণনা</value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.Description.Hint">
+        <value>ব্যবসায়ী বিবরণ</value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.Email">
+        <value>ইমেল</value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.Email.Hint">
+        <value>ইমেল</value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.Active">
+        <value>সক্রিয়</value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.Active.Hint">
+        <value>ব্যবসায়ী সক্রিয়</value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.AssociatedCustomerEmails">
+        <value>সংশ্লিষ্ট গ্রাহক ই-মেইলগুলি</value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.AssociatedCustomerEmails.Hint">
+        <value>সংশ্লিষ্ট গ্রাহক ই-মেইলগুলি</value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.AssociatedCustomerEmails.None">
+        <value>কোন সংশ্লিষ্ট গ্রাহক নেই</value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Customers.Customers.MerchantShouldBeInMerchantsRole">
+        <value>দ্রষ্টব্য: আপনার যদি এই গ্রাহকের সাথে কোনো ব্যবসায়ী যুক্ত থাকে, তাহলে নিশ্চিত করুন যে এটি "ব্যবসায়ী" গ্রাহকের ভূমিকায় রয়েছে।</value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Customers.Customers.Fields.Merchant">
+        <value>ব্যবসায়ী</value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Customers.Customers.Fields.Merchant.Hint">
+        <value>এই গ্রাহক অ্যাকাউন্টের সাথে যুক্ত একজন ব্যবসায়ী বেছে নিন। যুক্ত হলে এই গ্রাহক নির্বাচিত ব্যবসায়ী পোর্টালে লগইন করতে এবং তার পণ্যের স্টক এবং অর্ডারগুলি পরিচালনা করতে সক্ষম হবে ন৷</value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Customers.Customers.Fields.Merchant.None">
+        <value>একজন ব্যবসায়ী নয়</value>
+    </LocaleResource>
+
+    <LocaleResource Name="Admin.Configuration.countries.states.BackToList">
+        <Value>প্রদেশের তালিকায় ফিরুন</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.info">
+        <Value>প্রদেশের তথ্য</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.thanas">
+        <Value>থানা</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.thanas.fields.name">
+        <Value>নাম</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.thanas.fields.abbreviation">
+        <Value>সংক্ষেপ</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.thanas.fields.published">
+        <Value>প্রকাশিত</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.thanas.fields.displayorder">
+        <Value>প্রদর্শন ক্রম</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.thanas.fields.name.Hint">
+        <Value>থানার নাম।</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.thanas.fields.abbreviation.Hint">
+        <Value>এই থানার জন্য এটি সংক্ষেপণ।</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.thanas.fields.published.Hint">
+        <Value>থানাটি প্রকাশিত কিনা তা নির্ধারণ করে।</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.thanas.fields.displayorder.Hint">
+        <Value>থানার প্রদর্শন ক্রম। 1 তালিকার শীর্ষের প্রতিনিধিত্ব করে।</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.countries.thanas.editthanadetails">
+        <Value>থানা সম্পাদনা করুন</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.countries.thanas.backtolist">
+        <Value>থানার তালিকায় ফিরুন</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.thanas.info">
+        <Value>থানার তথ্য</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.thanas.areas">
+        <Value>এলাকা</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.thanas.addnew">
+        <Value>একটি নতুন থানা যোগ করুন</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.thanas.areas.fields.name">
+        <Value>নাম</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.thanas.areas.fields.abbreviation">
+        <Value>সংক্ষেপ</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.thanas.areas.fields.published">
+        <Value>প্রকাশিত</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.thanas.areas.fields.displayorder">
+        <Value>প্রদর্শন ক্রম</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.thanas.areas.fields.name.Hint">
+        <Value>এলাকার নাম</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.thanas.areas.fields.abbreviation.Hint">
+        <Value>এই এলাকার জন্য এটি সংক্ষেপণ।</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.thanas.areas.fields.published.Hint">
+        <Value>এলাকাটি প্রকাশিত কিনা তা নির্ধারণ করে।</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.thanas.areas.fields.displayorder.Hint">
+        <Value>এলাকার প্রদর্শন ক্রম। 1 তালিকার শীর্ষের প্রতিনিধিত্ব করে।</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.countries.area.addnew">
+        <Value>একটি নতুন এলাকা যোগ করুন</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.countries.areas.editareadetails">
+        <Value>এলাকা সম্পাদনা করুন</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.countries.areas.backtolist">
+        <Value>এলাকার তালিকায় ফিরুন</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.areas.info">
+        <Value>এলাকার তথ্য</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.address.fields.thana">
+        <Value>থানা</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Address.Fields.Area">
+        <Value>এলাকা</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.address.fields.thana.Hint">
+        <Value>থানা নির্বাচন করুন</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Address.Fields.Area.Hint">
+        <Value>এলাকা নির্বাচন করুন</Value>
+    </LocaleResource>
+    <LocaleResource Name="address.fields.thana">
+        <Value>থানা</Value>
+    </LocaleResource>
+    <LocaleResource Name="address.fields.area">
+        <Value>এলাকা</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.settings.customeruser.addressformfields.thanaenabled">
+        <Value>'থানা' প্রকাশিত</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.settings.customeruser.addressformfields.areaenabled">
+        <Value>'এলাকা' প্রকাশিত</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.countries.fields.numberofthanas">
+        <Value>থানার সংখ্যা</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Configuration.States.Fields.NumberOfAreas">
+        <Value>এলাকার সংখ্যা</Value>
+    </LocaleResource>
+    
+</Language>

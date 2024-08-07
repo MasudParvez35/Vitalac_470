@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language Name="বাংলা (বাংলাদেশ)">
+    <LocaleResource Name="Admin.Orders.PdfInvoice.Print">
+        <Value>Print invoice (PDF)</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="Admin.Merchants">
+        <Value>Merchants</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Address">
+        <Value>Merchant address</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.List.SearchName">
+        <Value>Search merchant name</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.List.SearchName.Hint">
+        <Value>Search merchant name</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.List.SearchEmail">
+        <Value>Search merchant email</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.List.SearchEmail.Hint">
+        <Value>Search merchant email</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.Name">
+        <Value>Name</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.Name.Hint">
+        <Value>Merchant name</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.Description">
+        <Value>Description</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.Description.Hint">
+        <Value>Merchant description</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.Email">
+        <Value>Email</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.Email.Hint">
+        <Value>Merchant email</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.Active">
+        <Value>Active</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.Active.Hint">
+        <Value>Merchant is active</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.AssociatedCustomerEmails">
+        <Value>Associated customer e-mails</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.AssociatedCustomerEmails.Hint">
+        <Value>Associated customer e-mails</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Merchants.Fields.AssociatedCustomerEmails.None">
+        <Value>No associated customers</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Customers.Customers.MerchantShouldBeInMerchantsRole">
+        <Value>Note: if you have a merchant associated with this customer, then also ensure it is in "Merchants" customer role.</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Customers.Customers.Fields.Merchant">
+        <Value>Merchant</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Customers.Customers.Fields.Merchant.Hint">
+        <Value>Choose a merchant associated to this customer account. When associated this customer will be able to login to the chosen merchant portal and manage his product stocks and orders.</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Customers.Customers.Fields.Merchant.None">
+        <Value>Not a merchant</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="Admin.Configuration.countries.states.BackToList">
+        <Value>back to state list</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.info">
+        <Value>State info</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.thanas">
+        <Value>Thanas</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.thanas.fields.name">
+        <Value>Name</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.thanas.fields.abbreviation">
+        <Value>Abbreviation</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.thanas.fields.published">
+        <Value>Published</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.thanas.fields.displayorder">
+        <Value>Display order</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.thanas.fields.name.Hint">
+        <Value>Tht name of the thana.</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.thanas.fields.abbreviation.Hint">
+        <Value>An abbreviation of this thana.</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.thanas.fields.published.Hint">
+        <Value>Determines whether this thana is published.</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.thanas.fields.displayorder.Hint">
+        <Value>The display order of this thana. 1 represent the top of the list</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.countries.thanas.editthanadetails">
+        <Value>Edit thana</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.countries.thanas.backtolist">
+        <Value>back to thana list</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.thanas.info">
+        <Value>Thana info</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.thanas.areas">
+        <Value>Areas</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.states.thanas.addnew">
+        <Value>Add a new thana</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.thanas.areas.fields.name">
+        <Value>Name</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.thanas.areas.fields.abbreviation">
+        <Value>Abbreviation</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.thanas.areas.fields.published">
+        <Value>Published</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.thanas.areas.fields.displayorder">
+        <Value>Display order</Value>
+    </LocaleResource>
+        <LocaleResource Name="admin.configuration.thanas.areas.fields.name.Hint">
+        <Value>Tht name of the area.</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.thanas.areas.fields.abbreviation.Hint">
+        <Value>An abbreviation of this area.</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.thanas.areas.fields.published.Hint">
+        <Value>Determines whether this area is published.</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.thanas.areas.fields.displayorder.Hint">
+        <Value>The display order of this area. 1 represent the top of the list</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.countries.area.addnew">
+        <Value>Add a new Area</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.countries.areas.editareadetails">
+        <Value>edit area</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.countries.areas.backtolist">
+        <Value>back to area list</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.areas.info">
+        <Value>Area info</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.address.fields.thana">
+        <Value>Thana</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Address.Fields.Area">
+        <Value>Area</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.address.fields.thana.Hint">
+        <Value>Select thana</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Address.Fields.Area.Hint">
+        <Value>Select area</Value>
+    </LocaleResource>
+    <LocaleResource Name="address.fields.thana">
+        <Value>Thana</Value>
+    </LocaleResource>
+    <LocaleResource Name="address.fields.area">
+        <Value>Area</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.settings.customeruser.addressformfields.thanaenabled">
+        <Value>'Thana' enabled</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.settings.customeruser.addressformfields.areaenabled">
+        <Value>'Area' enabled</Value>
+    </LocaleResource>
+    <LocaleResource Name="admin.configuration.countries.fields.numberofthanas">
+        <Value>Number of Thanas</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Configuration.States.Fields.NumberOfAreas">
+        <Value>Number of Areas</Value>
+    </LocaleResource>
+    
+</Language>

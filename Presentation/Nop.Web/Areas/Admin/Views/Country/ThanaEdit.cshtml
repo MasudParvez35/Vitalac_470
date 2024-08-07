@@ -1,0 +1,30 @@
+﻿@model ThanaModel
+
+@{
+    Layout = "_AdminLayout";
+
+    //page title
+    ViewBag.PageTitle = T("Admin.Configuration.Countries.Thanas.EditThanaDetails").Text;
+}
+
+
+<form asp-controller="Country" asp-action="ThanaEdit" method="post" id="thana-form">
+    <div class="content-header clearfix">
+        <h1 class="float-left">
+            @T("Admin.Configuration.Countries.Thanas.EditThanaDetails") - @Model.Name
+            <small>
+                <i class="fas fa-arrow-circle-left"></i>
+                <a asp-action="StateEdit" asp-route-id="@Model.StateProvinceId">@T("Admin.Configuration.Countries.Thanas.BackToList")</a>
+            </small>
+        </h1>
+        <div class="float-right">
+            <button type="submit" name="save" class="btn btn-primary">
+                <i class="far fa-save"></i>
+                @T("Admin.Common.Save")
+            </button>
+            @await Component.InvokeAsync(typeof(AdminWidgetViewComponent), new { widgetZone = AdminWidgetZones.CountryStateDetailsButtons, additionalData = Model })
+        </div>
+    </div>
+    @await Html.PartialAsync("_CreateOrUpdateThana", Model)
+</form>
+<nop-delete-confirmation asp-model-id="@Model.Id" asp-button-id="thana-delete" />

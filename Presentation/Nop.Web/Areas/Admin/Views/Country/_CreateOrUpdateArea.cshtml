@@ -1,0 +1,21 @@
+@model AreaModel
+
+@{
+    const string hideAreaInfoBlockAttributeName = "AreaPage.HideInfoBlock";
+    var customer = await workContext.GetCurrentCustomerAsync();
+    var hideAreaInfoBlock = await genericAttributeService.GetAttributeAsync<bool>(customer, hideAreaInfoBlockAttributeName);
+}
+
+<div asp-validation-summary="All"></div>
+<input asp-for="Id" type="hidden" />
+<input asp-for="ThanaId" type="hidden" />
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="form-horizontal">
+            <nop-cards id="area-cards">
+                <nop-card asp-name="area-info" asp-icon="fas fa-info" asp-title="@T("Admin.Configuration.Areas.Info")" asp-hide-block-attribute-name="@hideAreaInfoBlockAttributeName" asp-hide="@hideAreaInfoBlock" asp-advanced="false">@await Html.PartialAsync("_CreateOrUpdateArea.Info", Model)</nop-card>
+            </nop-cards>
+        </div>
+    </div>
+</section>

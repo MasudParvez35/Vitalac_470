@@ -1,0 +1,83 @@
+﻿@model ThanaModel
+
+@if (Model.Id > 0)
+{
+    <div class="card-body">
+        @await Html.PartialAsync("Table", new DataTablesModel
+    {
+        Name = "thanas-grid",
+        UrlRead = new DataUrl("Areas", "Country", new RouteValueDictionary { [nameof(AreaSearchModel.ThanaId)] = Model.AreaSearchModel.ThanaId }),
+        UrlDelete = new DataUrl("AreaDelete", "Country", null),
+        Length = Model.AreaSearchModel.PageSize,
+        LengthMenu = Model.AreaSearchModel.AvailablePageSizes,
+        ColumnCollection = new List<ColumnProperty>
+        {
+            new ColumnProperty(nameof(AreaModel.Name))
+            {
+                Title = T("Admin.Configuration.Thanas.Areas.Fields.Name").Text,
+                Width = "300"
+            },
+            new ColumnProperty(nameof(AreaModel.Abbreviation))
+            {
+                Title = T("Admin.Configuration.Thanas.Areas.Fields.Abbreviation").Text,
+                Width = "150"
+            },
+            new ColumnProperty(nameof(AreaModel.Published))
+            {
+                Title = T("Admin.Configuration.Thanas.Areas.Fields.Published").Text,
+                Width = "100",
+                ClassName = NopColumnClassDefaults.CenterAll,
+                Render = new RenderBoolean()
+            },
+            new ColumnProperty(nameof(AreaModel.DisplayOrder))
+            {
+                Title = T("Admin.Configuration.Thanas.Areas.Fields.DisplayOrder").Text,
+                Width = "100",
+                ClassName =  NopColumnClassDefaults.CenterAll
+            },
+            new ColumnProperty(nameof(AreaModel.Id))
+            {
+                Title = T("Admin.Common.Edit").Text,
+                Width = "100",
+                ClassName = NopColumnClassDefaults.Button,
+                Render = new RenderButtonEdit(new ("~/Admin/Country/AreaEdit"))
+            },
+            new ColumnProperty(nameof(AreaModel.Id))
+            {
+                Title = T("Admin.Common.Delete").Text,
+                Width = "100",
+                Render = new RenderButtonRemove(T("Admin.Common.Delete").Text),
+                ClassName = NopColumnClassDefaults.Button
+            }
+        }
+    })
+    </div>
+
+    <div class="card-footer">
+        <div width="100%">
+            <button type="submit" id="btnAddNewArea"
+                    onclick="javascript:OpenWindow('@(Url.Action("AreaCreatePopup", "Country", new { ThanaId = Model.Id, btnId = "btnRefresh", formId = "state-form" }))', 800, 450, true); return false;"
+                    class="btn btn-primary">
+                @T("Admin.Configuration.Thanas.Areas.AddNew")
+            </button>
+            <button type="submit" id="btnRefresh" style="display: none"></button>
+            <script>
+                $(function () {
+                    $('#btnRefresh').click(function () {
+                        //refresh grid
+                        updateTable('#areas-grid');
+
+                        //return false to don't reload a page
+                        return false;
+                    });
+                });
+            </script>
+        </div>
+    </div>
+}
+else
+{
+    <div class="card-body">
+        @T("Admin.Configuration.Thanas.Areas.SaveBeforeEdit")
+    </div>
+}

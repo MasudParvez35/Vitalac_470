@@ -1,0 +1,28 @@
+@model StateProvinceModel
+
+@{
+    const string hideStateInfoBlockAttributeName = "StatePage.HideInfoBlock";
+    var customer = await workContext.GetCurrentCustomerAsync();
+    var hideStateInfoBlock = await genericAttributeService.GetAttributeAsync<bool>(customer, hideStateInfoBlockAttributeName);
+
+    const string hideThanasBlockAttributeName = "StatePage.HideThanasBlock";
+    var hideThanasBlock = await genericAttributeService.GetAttributeAsync<bool>(customer, hideThanasBlockAttributeName, defaultValue: true);
+
+}
+
+<div asp-validation-summary="All"></div>
+<input asp-for="Id" type="hidden" />
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="form-horizontal">
+            <nop-cards id="state-cards">
+                <nop-card asp-name="state-info" asp-icon="fas fa-info" asp-title="@T("Admin.Configuration.States.Info")" asp-hide-block-attribute-name="@hideStateInfoBlockAttributeName" asp-hide="@hideStateInfoBlock" asp-advanced="false">@await Html.PartialAsync("_CreateOrUpdateState.Info", Model)</nop-card>
+                @if (Model.Id > 0)
+                {
+                    <nop-card asp-name="state-thanas" asp-icon="fas fa-globe" asp-title="@T("Admin.Configuration.States.Thanas")" asp-hide-block-attribute-name="@hideThanasBlockAttributeName" asp-hide="@hideThanasBlock" asp-advanced="false">@await Html.PartialAsync("_CreateOrUpdateState.Thanas", Model)</nop-card>
+                }
+            </nop-cards>
+        </div>
+    </div>
+</section>

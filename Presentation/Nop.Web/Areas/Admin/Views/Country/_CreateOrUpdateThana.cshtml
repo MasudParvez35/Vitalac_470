@@ -1,0 +1,28 @@
+@model ThanaModel
+
+@{
+    const string hideThanaInfoBlockAttributeName = "ThanaPage.HideInfoBlock";
+    var customer = await workContext.GetCurrentCustomerAsync();
+    var hideThanaInfoBlock = await genericAttributeService.GetAttributeAsync<bool>(customer, hideThanaInfoBlockAttributeName);
+
+    const string hideAreasBlockAttributeName = "ThanaPage.HideThanasBlock";
+    var hideAreasBlock = await genericAttributeService.GetAttributeAsync<bool>(customer, hideAreasBlockAttributeName, defaultValue: true);
+}
+
+<div asp-validation-summary="All"></div>
+<input asp-for="Id" type="hidden" />
+<input asp-for="StateProvinceId" type="hidden" />
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="form-horizontal">
+            <nop-cards id="thana-cards">
+                <nop-card asp-name="thana-info" asp-icon="fas fa-info" asp-title="@T("Admin.Configuration.Thanas.Info")" asp-hide-block-attribute-name="@hideThanaInfoBlockAttributeName" asp-hide="@hideThanaInfoBlock" asp-advanced="false">@await Html.PartialAsync("_CreateOrUpdateThana.Info", Model)</nop-card>
+                @if (Model.Id > 0)
+                {
+                    <nop-card asp-name="thana-areas" asp-icon="fas fa-globe" asp-title="@T("Admin.Configuration.Thanas.Areas")" asp-hide-block-attribute-name="@hideAreasBlockAttributeName" asp-hide="@hideAreasBlock" asp-advanced="false">@await Html.PartialAsync("_CreateOrUpdateThana.Areas", Model)</nop-card>
+                }
+            </nop-cards>
+        </div>
+    </div>
+</section>

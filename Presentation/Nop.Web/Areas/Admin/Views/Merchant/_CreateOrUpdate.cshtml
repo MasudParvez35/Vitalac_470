@@ -1,0 +1,30 @@
+﻿@model MerchantModel
+
+@{
+    const string hideInfoBlockAttributeName = "MerchantPage.HideInfoBlock";
+    var customer = await workContext.GetCurrentCustomerAsync();
+    var hideInfoBlock = await genericAttributeService.GetAttributeAsync<bool>(customer, hideInfoBlockAttributeName);
+}
+
+<div asp-validation-summary="All"></div>
+<input asp-for="Id" type="hidden" />
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="col-md-12 clearfix">
+                    <div class="float-left">
+                        @await Component.InvokeAsync(typeof(SettingModeViewComponent), new { modeName = "merchant-advanced-mode" })
+                    </div>
+                </div>
+            </div>
+
+            <nop-cards id="merchant-cards">
+                <nop-card asp-name="merchant-info" asp-icon="fas fa-info" asp-title="@T("Admin.Merchants.Info")" asp-hide-block-attribute-name="@hideInfoBlockAttributeName" asp-hide="@hideInfoBlock" asp-advanced="false">@await Html.PartialAsync("_CreateOrUpdate.Info", Model)</nop-card>
+
+                @await Component.InvokeAsync(typeof(AdminWidgetViewComponent), new { widgetZone = AdminWidgetZones.MerchantDetailsBlock, additionalData = Model })
+            </nop-cards>
+        </div>
+    </div>
+</section>

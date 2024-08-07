@@ -1,0 +1,89 @@
+﻿@model StateProvinceModel
+
+@if (Model.Id > 0)
+{
+    <div class="card-body">
+        @await Html.PartialAsync("Table", new DataTablesModel
+        {
+            Name = "states-grid",
+            UrlRead = new DataUrl("Thanas", "Country", new RouteValueDictionary { [nameof(ThanaSearchModel.StateProvinceId)] = Model.ThanaSearchModel.StateProvinceId }),
+            UrlDelete = new DataUrl("ThanaDelete", "Country", null),
+            Length = Model.ThanaSearchModel.PageSize,
+            LengthMenu = Model.ThanaSearchModel.AvailablePageSizes,
+            ColumnCollection = new List<ColumnProperty>
+            {
+                new ColumnProperty(nameof(ThanaModel.Name))
+                {
+                    Title = T("Admin.Configuration.States.Thanas.Fields.Name").Text,
+                    Width = "300"
+                },
+                new ColumnProperty(nameof(ThanaModel.Abbreviation))
+                {
+                    Title = T("Admin.Configuration.States.Thanas.Fields.Abbreviation").Text,
+                    Width = "150"
+                },
+                new ColumnProperty(nameof(ThanaModel.Published))
+                {
+                    Title = T("Admin.Configuration.States.Thanas.Fields.Published").Text,
+                    Width = "100",
+                    ClassName = NopColumnClassDefaults.CenterAll,
+                    Render = new RenderBoolean()
+                },
+                new ColumnProperty(nameof(ThanaModel.DisplayOrder))
+                {
+                    Title = T("Admin.Configuration.States.Thanas.Fields.DisplayOrder").Text,
+                    Width = "100",
+                    ClassName =  NopColumnClassDefaults.CenterAll
+                },
+                new ColumnProperty(nameof(ThanaModel.NumberOfAreas))
+                {
+                    Title = T("Admin.Configuration.States.Fields.NumberOfAreas").Text,
+                    Width = "100",
+                    ClassName =  NopColumnClassDefaults.CenterAll
+                },
+                new ColumnProperty(nameof(ThanaModel.Id))
+                {
+                    Title = T("Admin.Common.Edit").Text,
+                    Width = "100",
+                    ClassName = NopColumnClassDefaults.Button,
+                    Render = new RenderButtonEdit(new ("~/Admin/Country/ThanaEdit"))
+                },
+                new ColumnProperty(nameof(ThanaModel.Id))
+                {
+                    Title = T("Admin.Common.Delete").Text,
+                    Width = "100",
+                    Render = new RenderButtonRemove(T("Admin.Common.Delete").Text),
+                    ClassName = NopColumnClassDefaults.Button
+                }
+            }
+        })
+    </div>
+
+    <div class="card-footer">
+        <div width="100%">
+            <button type="submit" id="btnAddNewThana"
+                    onclick="javascript:OpenWindow('@(Url.Action("ThanaCreatePopup", "Country", new { StateProvinceId = Model.Id, btnId = "btnRefresh", formId = "state-form" }))', 800, 450, true); return false;"
+                    class="btn btn-primary">
+                @T("Admin.Configuration.States.Thanas.AddNew")
+            </button>
+            <button type="submit" id="btnRefresh" style="display: none"></button>
+            <script>
+                $(function () {
+                    $('#btnRefresh').click(function () {
+                        //refresh grid
+                        updateTable('#thanas-grid');
+
+                        //return false to don't reload a page
+                        return false;
+                    });
+                });
+            </script>
+        </div>
+    </div>
+}
+else
+{
+    <div class="card-body">
+        @T("Admin.Configuration.States.Thanas.SaveBeforeEdit")
+    </div>
+}
