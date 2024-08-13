@@ -41,7 +41,7 @@
                 @if(!catalogSettings.IgnoreStoreLimitations)
                 {
                     <text>
-                f.push('(LimitedToStores = 0 OR Stores = @((await storeContext.GetCurrentStoreAsync()).Id))');
+                        f.push('(LimitedToStores = 0 OR Stores = @((await storeContext.GetCurrentStoreAsync()).Id))');
                     </text>
                 }
 
@@ -63,13 +63,35 @@
                 var client = algoliasearch('@Model.ApplicationId', '@Model.SearchOnlyKey')
                 var index = client.initIndex('@AlgoliaDefaults.DefaultIndexName');
 
+                // Initialize Algolia Insights
+                !(function(e, a, t, n, s, i, c) {
+                    (e.AlgoliaAnalyticsObject = s),
+                    (e[s] = e[s] || function () {
+                      (e[s].queue = e[s].queue || []).push(arguments);
+                    }),
+                    (e[s].version = (n.match(/@@([^\/]+)\/?/) || [])[1]),
+                    (i = a.createElement(t)),
+                    (c = a.getElementsByTagName(t)[0]),
+                    (i.async = 1),
+                    (i.src = n),
+                    c.parentNode.insertBefore(i, c);
+                })(window, document, "script", "//cdn.jsdelivr.net/npm/search-insights@2.11.0/dist/search-insights.min.js", "aa");
+
+                aa("init", {
+                    appId: "@Model.ApplicationId",
+                    apiKey: "@Model.SearchOnlyKey"
+                });
+
+
                 autocomplete('#small-searchterms', { hint: false, minLength: @Model.SearchTermMinimumLength }, [
                 {
                     source: function (query, callback) {
                         index.search(query, {
 							hitsPerPage: @Model.AutoCompleteListSize,
-                            filters: getFilters()
+                            filters: getFilters(),
+                            clickAnalytics : true
                         }).then(({ hits }) => {
+                            window.latestQueryID = hits[0].queryID;
                             callback(hits);
                         });
                     },
@@ -118,7 +140,18 @@
                         console.log(ui)
                     }
                 }])
+
                 .on('autocomplete:selected', function (event, suggestion, dataset) {
+
+                    // Capture click event
+                    aa("clickedObjectIDsAfterSearch", {
+                        eventName: "Product Clicked",
+                        index: '@AlgoliaDefaults.DefaultIndexName',
+                        queryID: window.latestQueryID,
+                        objectIDs: [suggestion.objectID],
+                        positions: [1]
+                    });
+                        
                     setLocation('@webHelper.GetStoreLocation()' + suggestion.SeName);
                 })
                 //.off('blur').on('blur', function () {
@@ -127,6 +160,49 @@
                 //    }
                 //});
             });
+
+            // Function to track add-to-cart event
+            function trackAddToCart(product) {
+                aa('addedToCartObjectIDsAfterSearch', {
+                    eventName: 'Product Added To Cart',
+                    index: '@AlgoliaDefaults.DefaultIndexName',
+                    objectIDs: [product.id],
+                    objectData: [
+                        {
+                            queryID: window.latestQueryID,
+                            price: product.price,
+                            discount: product.discount || 0,
+                            quantity: product.quantity || 1
+                        }
+                    ],
+                    currency: 'USD'
+                });
+            }
+
+            var temp = AjaxCart.success_process;
+            AjaxCart.success_process = (res) => {
+                temp(res);
+                trackAddToCart(res.product);
+            }
+
+            // Function to track purchase event
+            function trackPurchase(products) {
+                const objectData = products.map(product => ({
+                    queryID: product.queryID,
+                    price: product.price,
+                    discount: product.discount || 0,
+                    quantity: product.quantity || 1
+                }));
+
+                aa('purchasedObjectIDsAfterSearch', {
+                    eventName: 'Products Purchased', 
+                    index: '@AlgoliaDefaults.DefaultIndexName',
+                    objectIDs: products.map(product => product.objectID),
+                    objectData: objectData,
+                    currency: 'USD'
+                });
+            }
+
         </script>
     }
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.SearchBox })

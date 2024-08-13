@@ -83,6 +83,7 @@ public partial class ShoppingCartController : BasePublicController
     protected readonly ShoppingCartSettings _shoppingCartSettings;
     protected readonly ShippingSettings _shippingSettings;
     private static readonly char[] _separator = [','];
+    protected readonly IPriceCalculationService _priceCalculationService;
 
     #endregion
 
@@ -124,7 +125,8 @@ public partial class ShoppingCartController : BasePublicController
         MediaSettings mediaSettings,
         OrderSettings orderSettings,
         ShoppingCartSettings shoppingCartSettings,
-        ShippingSettings shippingSettings)
+        ShippingSettings shippingSettings,
+        IPriceCalculationService priceCalculationService)
     {
         _captchaSettings = captchaSettings;
         _customerSettings = customerSettings;
@@ -163,6 +165,7 @@ public partial class ShoppingCartController : BasePublicController
         _orderSettings = orderSettings;
         _shoppingCartSettings = shoppingCartSettings;
         _shippingSettings = shippingSettings;
+        _priceCalculationService = priceCalculationService;
     }
 
     #endregion
@@ -680,12 +683,23 @@ public partial class ShoppingCartController : BasePublicController
                     ? await RenderViewComponentToStringAsync(typeof(FlyoutShoppingCartViewComponent))
                     : string.Empty;
 
+                var currentItem = await _shoppingCartService.FindShoppingCartItemInTheCartAsync(shoppingCarts, cartType, product, attXml);
+                var price = await _priceFormatter.FormatPriceAsync(product.Price);
+                var priceCalculate = await _priceCalculationService.GetFinalPriceAsync(product, customer, store, 0, true, quantity);
+                
                 return Json(new
                 {
                     success = true,
                     message = string.Format(await _localizationService.GetResourceAsync("Products.ProductHasBeenAddedToTheCart.Link"), Url.RouteUrl("ShoppingCart")),
                     updatetopcartsectionhtml,
-                    updateflyoutcartsectionhtml
+                    updateflyoutcartsectionhtml,
+                    product = new
+                    {
+                        id = product.Id,
+                        quantity = quantity,
+                        price = priceCalculate.finalPrice,
+                        discount = priceCalculate.appliedDiscounts
+                    }
                 });
             }
         }

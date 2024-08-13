@@ -1,2 +1,3 @@
-﻿@model Nop.Web.Models.Catalog.SearchBoxModel
-@await Component.InvokeAsync("AlgoliaSearch", new { additionalData = Model })
+﻿@using NopStation.Plugin.Misc.AlgoliaSearch.Components
+@model Nop.Web.Models.Catalog.SearchBoxModel
+@await Component.InvokeAsync(typeof(AlgoliaSearchViewComponent), new { additionalData = Model })
